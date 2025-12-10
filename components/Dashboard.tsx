@@ -16,7 +16,8 @@ export const Dashboard: React.FC<DashboardProps> = ({ events }) => {
   const pieData = Object.keys(typeCount).map(type => ({
     name: type.charAt(0).toUpperCase() + type.slice(1),
     value: typeCount[type],
-    color: type === 'training' ? '#3b82f6' : 
+    color: type === 'core' ? '#3b82f6' : 
+           type === 'inclusion' ? '#e11d48' :
            type === 'ai' ? '#9333ea' : 
            type === 'ethics' ? '#0d9488' : 
            type === 'challenge' ? '#f59e0b' : '#9ca3af'
@@ -78,10 +79,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ events }) => {
       </div>
       
       {/* Summary Stats */}
-      <div className="col-span-1 lg:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="col-span-1 lg:col-span-2 grid grid-cols-2 md:grid-cols-5 gap-4">
           <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
               <span className="text-blue-600 text-xs font-bold uppercase">Total Sessions</span>
               <div className="text-2xl font-bold text-blue-900">{events.filter(e => e.type !== 'holiday').length}</div>
+          </div>
+          <div className="bg-rose-50 p-4 rounded-lg border border-rose-100">
+              <span className="text-rose-600 text-xs font-bold uppercase">Inclusion</span>
+              <div className="text-2xl font-bold text-rose-900">{typeCount['inclusion'] || 0}</div>
           </div>
           <div className="bg-purple-50 p-4 rounded-lg border border-purple-100">
               <span className="text-purple-600 text-xs font-bold uppercase">AI Focused</span>

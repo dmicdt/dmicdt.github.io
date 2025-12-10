@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import { INITIAL_EVENTS } from './constants';
 import { generateAcademicYear, generateICS } from './services/dateService';
 import { EventModal } from './components/EventModal';
-import { Dashboard } from './components/Dashboard';
 import { AgendaView } from './components/AgendaView';
 import { CalendarEvent, EventType, EVENT_COLORS } from './types';
 import { 
@@ -10,13 +9,11 @@ import {
     Search, 
     LayoutGrid, 
     List, 
-    BarChart3, 
-    Calendar as CalendarIcon, 
-    Filter 
+    Calendar as CalendarIcon
 } from 'lucide-react';
 
 const App: React.FC = () => {
-  const [view, setView] = useState<'calendar' | 'dashboard' | 'agenda'>('calendar');
+  const [view, setView] = useState<'calendar' | 'agenda'>('calendar');
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<EventType | 'all'>('all');
@@ -50,10 +47,10 @@ const App: React.FC = () => {
                 <div className="h-12 w-1.5 bg-[#D4AF37] rounded-full hidden sm:block"></div>
                 <div>
                     <h1 className="text-xl lg:text-2xl font-extrabold text-[#003366] uppercase tracking-tight leading-none">
-                        CDT Induction Planner
+                        CDT Year Planner
                     </h1>
                     <div className="flex items-center gap-2 text-sm text-gray-500 font-medium mt-1">
-                        <span className="bg-[#003366] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">Cohort 2</span>
+                        <span className="bg-[#003366] text-white px-2 py-0.5 rounded-full text-[10px] font-bold uppercase">25/26</span>
                         <span>AI for Digital Media Inclusion</span>
                     </div>
                 </div>
@@ -84,15 +81,9 @@ const App: React.FC = () => {
                     </button>
                     <button 
                         onClick={() => setView('agenda')}
-                        className={`flex-1 sm:flex-none px-3 py-1.5 rounded-md text-sm font-medium flex items-center justify-center gap-2 transition-all lg:hidden ${view === 'agenda' ? 'bg-white text-[#003366] shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
+                        className={`flex-1 sm:flex-none px-3 py-1.5 rounded-md text-sm font-medium flex items-center justify-center gap-2 transition-all ${view === 'agenda' ? 'bg-white text-[#003366] shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
                     >
                         <List size={16} /> <span className="hidden sm:inline">Agenda</span>
-                    </button>
-                    <button 
-                        onClick={() => setView('dashboard')}
-                        className={`flex-1 sm:flex-none px-3 py-1.5 rounded-md text-sm font-medium flex items-center justify-center gap-2 transition-all ${view === 'dashboard' ? 'bg-white text-[#003366] shadow-sm' : 'text-gray-500 hover:text-gray-700'}`}
-                    >
-                        <BarChart3 size={16} /> <span className="hidden sm:inline">Stats</span>
                     </button>
                 </div>
 
@@ -113,7 +104,7 @@ const App: React.FC = () => {
              >
                 All Events
              </button>
-             {(['training', 'ai', 'ethics', 'challenge'] as EventType[]).map(type => (
+             {(['core', 'ai', 'inclusion', 'ethics', 'challenge'] as EventType[]).map(type => (
                  <button
                     key={type}
                     onClick={() => setFilterType(type)}
@@ -130,8 +121,6 @@ const App: React.FC = () => {
       {/* Main Content */}
       <main className="max-w-[1600px] mx-auto px-4 lg:px-8 py-8">
         
-        {view === 'dashboard' && <Dashboard events={INITIAL_EVENTS} />}
-
         {view === 'agenda' && <AgendaView weeks={weeks} onEventClick={setSelectedEvent} />}
 
         {view === 'calendar' && (
@@ -169,7 +158,10 @@ const App: React.FC = () => {
                                     </div>
 
                                     {/* Events */}
-                                    {day.isHoliday ? (
+                                    {day.dateStr < '2025-10-01' ? (
+                                        <div className="flex-1 flex items-center justify-center bg-gray-50 rounded border border-dashed border-gray-200">
+                                        </div>
+                                    ) : day.isHoliday ? (
                                         <div className="flex-1 flex items-center justify-center p-2 text-center bg-red-50 text-red-800 text-xs font-bold rounded border border-dashed border-red-200 opacity-80">
                                             {day.holidayName}
                                         </div>
@@ -199,10 +191,7 @@ const App: React.FC = () => {
                     ))}
                     {/* Final Row */}
                     <div className="grid grid-cols-[80px_repeat(5,1fr)] bg-gray-50 min-h-[60px]">
-                        <div className="p-2 border-r border-gray-200 flex items-center justify-center text-xs text-gray-500 font-bold">
-                             Future
-                        </div>
-                        <div className="col-span-5 flex items-center justify-center p-4 text-sm text-gray-500 italic">
+                        <div className="col-span-6 flex items-center justify-center p-4 text-sm text-gray-500 italic font-medium">
                              Summer Period (Jun 2026 - Sep 2027) — Focus on Individual PhD Research
                         </div>
                     </div>
@@ -215,7 +204,7 @@ const App: React.FC = () => {
             <div className="lg:hidden text-center mt-10 p-8 bg-white rounded-xl shadow border border-gray-200">
                 <LayoutGrid className="mx-auto h-12 w-12 text-gray-300 mb-3"/>
                 <h3 className="text-lg font-bold text-gray-800">Switch to Agenda View</h3>
-                <p className="text-gray-500 mb-4">The grid view is optimized for desktop screens. For the best mobile experience, use the Agenda or Stats view.</p>
+                <p className="text-gray-500 mb-4">The grid view is optimized for desktop screens. For the best mobile experience, use the Agenda view.</p>
                 <button onClick={() => setView('agenda')} className="bg-[#003366] text-white px-6 py-2 rounded-lg font-bold">Switch View</button>
             </div>
         )}

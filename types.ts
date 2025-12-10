@@ -1,4 +1,4 @@
-export type EventType = 'training' | 'ai' | 'ethics' | 'challenge' | 'holiday' | 'research';
+export type EventType = 'core' | 'ai' | 'ethics' | 'challenge' | 'holiday' | 'research' | 'inclusion';
 
 export interface CalendarEvent {
   id: string;
@@ -24,7 +24,8 @@ export interface WeekData {
 }
 
 export const EVENT_COLORS: Record<EventType, { bg: string; border: string; text: string }> = {
-  training: { bg: 'bg-blue-50', border: 'border-blue-500', text: 'text-blue-900' },
+  core: { bg: 'bg-blue-50', border: 'border-blue-500', text: 'text-blue-900' },
+  inclusion: { bg: 'bg-rose-50', border: 'border-rose-500', text: 'text-rose-900' },
   ai: { bg: 'bg-purple-50', border: 'border-purple-600', text: 'text-purple-900' },
   ethics: { bg: 'bg-teal-50', border: 'border-teal-600', text: 'text-teal-900' },
   challenge: { bg: 'bg-amber-50', border: 'border-amber-500', text: 'text-amber-900' },

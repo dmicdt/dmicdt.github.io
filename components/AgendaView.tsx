@@ -7,6 +7,8 @@ interface AgendaViewProps {
   onEventClick: (e: CalendarEvent) => void;
 }
 
+type DayData = WeekData['days'][number];
+
 export const AgendaView: React.FC<AgendaViewProps> = ({ weeks, onEventClick }) => {
   // Flatten data for list view, removing empty days for cleaner mobile exp
   const daysWithEvents = weeks.flatMap(w => w.days).filter(d => d.events.length > 0 || d.isHoliday);
@@ -17,11 +19,11 @@ export const AgendaView: React.FC<AgendaViewProps> = ({ weeks, onEventClick }) =
       if(!acc[month]) acc[month] = [];
       acc[month].push(day);
       return acc;
-  }, {} as Record<string, typeof daysWithEvents>);
+  }, {} as Record<string, DayData[]>);
 
   return (
     <div className="space-y-8 pb-20">
-        {Object.entries(grouped).map(([month, days]) => (
+        {Object.entries(grouped).map(([month, days]: [string, DayData[]]) => (
             <div key={month}>
                 <h3 className="sticky top-0 bg-[#f8f9fa]/95 backdrop-blur py-3 text-lg font-bold text-[#003366] border-b border-gray-200 z-10">
                     {month}
