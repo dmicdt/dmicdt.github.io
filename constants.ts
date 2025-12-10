@@ -111,7 +111,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
 
   // RRI
   { id: id(), date: "2026-03-12", time: "09:00-16:00", title: "RRI with Orbit Day 1", location: "TBD", type: "ethics" },
-  { id: id(), date: "2026-03-19", time: "09:00-16:00", title: "RRI with Orbit Day 1", location: "TBD", type: "ethics" },
+  { id: id(), date: "2026-03-19", time: "09:00-16:00", title: "RRI with Orbit Day 2", location: "TBD", type: "ethics" },
 ];
 
 // Helper to fill in ranges (Mini Challenge, etc)

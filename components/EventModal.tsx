@@ -1,5 +1,6 @@
 import React from 'react';
 import { CalendarEvent, EVENT_COLORS } from '../types';
+import { generateICS } from '../services/dateService';
 import { X, MapPin, Clock, Calendar as CalIcon, BookOpen } from 'lucide-react';
 
 interface EventModalProps {
@@ -73,7 +74,10 @@ export const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
             <button onClick={onClose} className="px-4 py-2 text-sm text-gray-600 font-medium hover:text-gray-900">
                 Close
             </button>
-            <button className="px-4 py-2 text-sm bg-[#003366] text-white font-medium rounded-md hover:bg-[#002244] transition-colors shadow-sm">
+            <button 
+                onClick={() => generateICS([event], `${event.title.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.ics`)}
+                className="px-4 py-2 text-sm bg-[#003366] text-white font-medium rounded-md hover:bg-[#002244] transition-colors shadow-sm"
+            >
                 Add to Calendar
             </button>
         </div>

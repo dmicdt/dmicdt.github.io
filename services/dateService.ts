@@ -49,7 +49,7 @@ export const generateAcademicYear = (startDate: string, endDate: string, events:
   return weeks;
 };
 
-export const generateICS = (events: CalendarEvent[]) => {
+export const generateICS = (events: CalendarEvent[], fileName: string = 'cdt-calendar.ics') => {
   let icsContent = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//CDT Planner//EN\n";
 
   events.forEach(event => {
@@ -94,6 +94,6 @@ export const generateICS = (events: CalendarEvent[]) => {
   const blob = new Blob([icsContent], { type: 'text/calendar' });
   const link = document.createElement('a');
   link.href = window.URL.createObjectURL(blob);
-  link.download = 'cdt-calendar.ics';
+  link.download = fileName;
   link.click();
 };
