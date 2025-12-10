@@ -53,11 +53,39 @@ export const generateICS = (events: CalendarEvent[]) => {
   let icsContent = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//CDT Planner//EN\n";
 
   events.forEach(event => {
-    const start = event.date.replace(/-/g, '');
+    // Basic clean up of date YYYYMMDD
+    const dateStr = event.date.replace(/-/g, '');
+    let dtStart = `DTSTART;VALUE=DATE:${dateStr}`;
+    let dtEnd = ''; 
+    let isAllDay = true;
+
+    // Check if time is specified and parseable
+    if (event.time && event.time.toLowerCase() !== 'all day') {
+        // Match HH:MM-HH:MM or HH.MM-HH.MM with optional spaces
+        // Replaces en-dashes or em-dashes with hyphen just in case
+        const normalizedTime = event.time.replace(/–/g, '-').replace(/—/g, '-');
+        const timeMatch = normalizedTime.match(/(\d{1,2})[:\.](\d{2})\s*-\s*(\d{1,2})[:\.](\d{2})/);
+
+        if (timeMatch) {
+            isAllDay = false;
+            const [_, h1, m1, h2, m2] = timeMatch;
+            
+            // Helper to pad time components
+            const pad = (n: string) => n.length === 1 ? '0' + n : n;
+
+            // Construct ISO time strings (Local time)
+            dtStart = `DTSTART:${dateStr}T${pad(h1)}${m1}00`;
+            dtEnd = `DTEND:${dateStr}T${pad(h2)}${m2}00`;
+        }
+    }
+
     icsContent += "BEGIN:VEVENT\n";
-    icsContent += `DTSTART;VALUE=DATE:${start}\n`;
+    icsContent += `${dtStart}\n`;
+    if (!isAllDay && dtEnd) {
+        icsContent += `${dtEnd}\n`;
+    }
     icsContent += `SUMMARY:${event.title}\n`;
-    if(event.location) icsContent += `LOCATION:${event.location}\n`;
+    if (event.location) icsContent += `LOCATION:${event.location}\n`;
     icsContent += "END:VEVENT\n";
   });
 
