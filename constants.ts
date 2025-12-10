@@ -89,8 +89,8 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
 
   { id: id(), date: "2025-12-10", time: "10:00-13:30", title: "Open Inclusion Session", location: "Online", type: "inclusion" },
 
-  { id: id(), date: "2025-12-12", time: "11:00-12:00", title: "External Seminar", location: "Surrey 21BA02", type: "core" },
-  { id: id(), date: "2025-12-12", time: "13:30-14:30", title: "Practice-based PhD (optional)", location: "Online", type: "core" },
+  { id: id(), date: "2025-12-11", time: "11:00-12:00", title: "External Seminar", location: "Surrey 21BA02", type: "core" },
+  { id: id(), date: "2025-12-11", time: "13:30-14:30", title: "Practice-based PhD (optional)", location: "Online", type: "core" },
 
   { id: id(), date: "2025-12-16", time: "15:00-16:00", title: "What's a PhD?", location: "Online", type: "core" },
   
