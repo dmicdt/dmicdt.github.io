@@ -14,7 +14,7 @@ const id = () => Math.random().toString(36).substr(2, 9);
 
 export const INITIAL_EVENTS: CalendarEvent[] = [
   // OCT 2025 - Induction Week
-  { id: id(), date: "2025-10-01", time: "9:45-16:30", title: "CDT Induction Day 1", location: "Surrey 21BA02", type: "core" },
+  { id: id(), date: "2025-10-01", time: "9:45-17:30", title: "CDT Induction Day 1", location: "Surrey 21BA02", type: "core" },
   { id: id(), date: "2025-10-02", time: "10:30-12:00", title: "RHUL Doctoral School Induction", location: "RHUL Davison 104", type: "core" },
   { id: id(), date: "2025-10-02", time: "10:00-13:00", title: "Surrey Registration", location: "Hive & 23BA02", type: "core" },
   { id: id(), date: "2025-10-02", time: "14:00-16:00", title: "What's a PhD?", location: "Online", type: "core" },
