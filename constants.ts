@@ -98,6 +98,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2025-12-17", time: "10:00-13:30", title: "Open Inclusion Session", location: "Online", type: "inclusion" },
 
   // CHALLENGES (Simulating ranges with explicit entries for simplicity of the example)
+  { id: id(), date: "2026-01-08", time: "15:00-16:00", title: "Open Inclusion Drop in", location: "Online", type: "inclusion" },
   { id: id(), date: "2026-01-19", time: "", title: "CDT Industry Event", location: "Google London", type: "challenge" },
   
   // ETHICS
