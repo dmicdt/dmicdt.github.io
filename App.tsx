@@ -192,7 +192,7 @@ const App: React.FC = () => {
                     {/* Final Row */}
                     <div className="grid grid-cols-[80px_repeat(5,1fr)] bg-gray-50 min-h-[60px]">
                         <div className="col-span-6 flex items-center justify-center p-4 text-sm text-gray-500 italic font-medium">
-                             Summer Period (Jun 2026 - Sep 2027) — Focus on Individual PhD Research
+                             Summer Period (Jun 2026 - Sep 2026) — Focus on Individual PhD Research
                         </div>
                     </div>
                 </div>

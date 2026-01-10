@@ -83,6 +83,7 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
 
   { id: id(), date: "2025-12-03", time: "All Day", title: "CVMP (optional)", location: "TBD", type: "core" },
   { id: id(), date: "2025-12-04", time: "All Day", title: "CVMP (optional)", location: "TBD", type: "core" },
+  { id: id(), date: "2025-12-05", time: "16:00-17:00", title: "Open Inclusion Assessment 1 deadline", location: "-", type: "inclusion" },
 
   { id: id(), date: "2025-12-09", time: "10:00-13:00", title: "Inclusive Creative Practice", location: "RHUL Lamar Lab", type: "inclusion" },
   { id: id(), date: "2025-12-09", time: "14:00-15:00", title: "Open Inclusion Drop in", location: "Online", type: "inclusion" },
@@ -97,8 +98,16 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
 
   { id: id(), date: "2025-12-17", time: "10:00-13:30", title: "Open Inclusion Session", location: "Online", type: "inclusion" },
 
-  // CHALLENGES (Simulating ranges with explicit entries for simplicity of the example)
+// ------------- 2026 -----------------
   { id: id(), date: "2026-01-08", time: "15:00-16:00", title: "Open Inclusion Drop in", location: "Online", type: "inclusion" },
+  { id: id(), date: "2026-01-13", time: "11:00-11:45", title: "Mini Challenge Feedback -- Creative Equity", location: "Online", type: "core" },
+  { id: id(), date: "2026-01-13", time: "12:00-12:45", title: "Mini Challenge Feedback -- Learning Difference Adaptation", location: "Online", type: "core" },
+  { id: id(), date: "2026-01-13", time: "13:00-13:45", title: "Mini Challenge Feedback -- Media Archive Discoverability", location: "Online", type: "core" },
+  { id: id(), date: "2026-01-13", time: "15:30-16:15", title: "Mini Challenge Feedback -- Adapting to Emotion", location: "Online", type: "core" },
+  { id: id(), date: "2026-01-15", time: "16:00-17:00", title: "Open Inclusion Assessment 2 deadline", location: "-", type: "inclusion" },
+  { id: id(), date: "2026-01-16", time: "14:00-14:45", title: "Mini Challenge Feedback -- Community Driven Futures", location: "Online", type: "core" },
+  
+  // CHALLENGES (Simulating ranges with explicit entries for simplicity of the example)
   { id: id(), date: "2026-01-19", time: "", title: "CDT Industry Event", location: "Google London", type: "challenge" },
   
   // ETHICS
@@ -107,9 +116,9 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-01-22", time: "10:00-16:00", title: "Ethics Bootcamp", location: "21BA02", type: "ethics" },
 
   // AI SURGERIES
-  { id: id(), date: "2026-01-29", time: "11:00-12:00", title: "AI Surgery (optional)", location: "TBD", type: "ai" },
-  { id: id(), date: "2026-02-05", time: "11:00-12:00", title: "AI Surgery (optional)", location: "TBD", type: "ai" },
-  { id: id(), date: "2026-02-12", time: "11:00-12:00", title: "AI Surgery (optional)", location: "TBD", type: "ai" },
+  { id: id(), date: "2026-01-29", time: "11:00-12:30", title: "AI Surgery (optional)", location: "21BA02", type: "ai" },
+  { id: id(), date: "2026-02-05", time: "11:00-12:30", title: "AI Surgery (optional)", location: "32BA00", type: "ai" },
+  { id: id(), date: "2026-02-12", time: "11:00-12:30", title: "AI Surgery (optional)", location: "32BA00", type: "ai" },
 
   // RRI
   { id: id(), date: "2026-03-12", time: "09:00-16:00", title: "RRI with Orbit Day 1", location: "TBD", type: "ethics" },
