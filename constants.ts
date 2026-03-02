@@ -121,8 +121,8 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-02-12", time: "11:00-12:30", title: "AI Surgery (optional)", location: "32BA00", type: "ai" },
 
   // RRI
-  { id: id(), date: "2026-03-12", time: "09:00-17:00", title: "RRI with Orbit Day 1", location: "TBD", type: "ethics" },
-  { id: id(), date: "2026-03-19", time: "09:00-17:00", title: "RRI with Orbit Day 2", location: "TBD", type: "ethics" },
+  { id: id(), date: "2026-03-12", time: "09:00-17:00", title: "RRI with Orbit Day 1", location: "21BA02", type: "ethics" },
+  { id: id(), date: "2026-03-19", time: "09:00-17:00", title: "RRI with Orbit Day 2", location: "21BA02", type: "ethics" },
 ];
 
 // Helper to fill in ranges (Mini Challenge, etc)
