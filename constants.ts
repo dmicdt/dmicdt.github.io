@@ -128,8 +128,8 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
   { id: id(), date: "2026-03-26", time: "11:00-12:45", title: "Academic Writing and Research Good Practice (optional)", location: "21BA02", type: "core" },
   { id: id(), date: "2026-03-31", time: "11:00-12:30", title: "Industry Skills Sharing by Tom Grey (optional)", location: "21BA02", type: "core" },
 
-  { id: id(), date: "2026-04-20", time: "All Day", title: "Spring Challenges kick-off event", location: "Shilling Building, RHUL", type: "challenge" },
-  { id: id(), date: "2026-05-29", time: "All Day", title: "CDT Spring Challenge Final Presentations", location: "Surrey", type: "challenge" },
+  { id: id(), date: "2026-04-20", time: "All Day", title: "Spring Challenges kick-off event (Please see calendar invite for more details)", location: "Shilling Building, RHUL", type: "challenge" },
+  { id: id(), date: "2026-05-29", time: "All Day", title: "CDT Spring Challenge Final Presentations (Please see calendar invite for more details)", location: "Surrey", type: "challenge" },
 ];
 
 // Helper to fill in ranges (Mini Challenge, etc)
