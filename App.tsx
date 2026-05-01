@@ -31,7 +31,7 @@ const App: React.FC = () => {
   const weeks = useMemo(() => {
     // We pass filteredEvents to generate the grid. 
     // Note: This hides the event from the grid but keeps the date cell.
-    return generateAcademicYear('2025-09-29', '2026-05-29', filteredEvents);
+    return generateAcademicYear('2025-09-29', '2027-01-01', filteredEvents);
   }, [filteredEvents]);
 
   return (
