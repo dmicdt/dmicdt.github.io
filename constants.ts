@@ -130,6 +130,8 @@ export const INITIAL_EVENTS: CalendarEvent[] = [
 
   { id: id(), date: "2026-04-20", time: "All Day", title: "Spring Challenges kick-off event (Please see calendar invite for more details)", location: "Shilling Building, RHUL", type: "challenge" },
   { id: id(), date: "2026-05-29", time: "All Day", title: "CDT Spring Challenge Final Presentations (Please see calendar invite for more details)", location: "Surrey", type: "challenge" },
+
+  { id: id(), date: "2026-06-04", time: "13:30-14:30", title: "External Seminar with Philip McLauchlan", location: "21BA02", type: "core" },
 ];
 
 // Helper to fill in ranges (Mini Challenge, etc)
